@@ -85,3 +85,7 @@ function draw(){
     ellipse(200, 540, 25, 25);
 
 }
+
+// function mousePressed(){
+//
+// }
