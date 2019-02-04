@@ -3,12 +3,16 @@ function setup(){
     background("blue");
 }
 function draw(){
+
+    // sun
     fill("yellow");
     ellipse(100, 285, 300, 300);
 
+    // grass
     fill("green");
     rect(0, 320, 1080,760);
 
+    // Pig Character
     // fill("white");
     fill("pink");
 
@@ -38,4 +42,39 @@ function draw(){
     fill("pink");
     strokeWeight(5);
     ellipse(475, 700, 40, 30);
+
+
+    // Person Character
+
+    // neck
+    fill("beige");
+    strokeWeight(1);
+    rect(185, 560, 35, 60);
+    strokeWeight(5);
+
+    // arms
+    // left
+    rect(70, 600, 80, 20);
+    // right
+    rect(240, 600, 80, 20);
+
+    // legs
+    rect(150, 760, 40, 100);
+    rect(210, 760, 40, 100);
+
+    // body
+    rect(130, 560, 135, 200);
+
+    // head
+    ellipse(200, 500, 150, 150);
+
+    // eyes
+    ellipse(170, 490, 45, 20);
+    ellipse(230, 490, 45, 20);
+
+    // pupils
+    fill("black");
+    ellipse(170, 490, 25, 15);
+    ellipse(230, 490, 25, 15);
+
 }
