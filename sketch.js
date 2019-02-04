@@ -1,13 +1,10 @@
 function preload() {
-    pig = loadSound('assets/pig.mp3');
+    // pig = loadSound('assets/pig.mp3');
 }
 
 function setup(){
     createCanvas(1080, 1080);
     background("blue");
-
-    // pig.setVolume(0.1);
-    // pig.play();
 }
 function draw(){
 
