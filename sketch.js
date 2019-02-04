@@ -23,4 +23,19 @@ function draw(){
     rect(540, 800, 75, 75);
     rect(660, 800, 75, 75);
     rect(700, 800, 75, 75);
+
+    // eyes
+    fill("white");
+    ellipse(440, 650, 40, 70);
+    ellipse(510, 650, 40, 70);
+
+    // pupil
+    fill("black");
+    ellipse(440, 650, 20, 35);
+    ellipse(510, 650, 20, 35);
+
+    // nose
+    fill("pink");
+    strokeWeight(5);
+    ellipse(475, 700, 40, 30);
 }
