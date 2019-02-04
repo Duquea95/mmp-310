@@ -1,6 +1,13 @@
+function preload() {
+    pig = loadSound('assets/pig.mp3');
+}
+
 function setup(){
     createCanvas(1080, 1080);
     background("blue");
+
+    // pig.setVolume(0.1);
+    // pig.play();
 }
 function draw(){
 
@@ -54,16 +61,16 @@ function draw(){
 
     // arms
     // left
-    rect(70, 600, 80, 20);
+    rect(90, 600, 80, 30);
     // right
-    rect(240, 600, 80, 20);
+    rect(240, 600, 80, 30);
 
     // legs
-    rect(150, 760, 40, 100);
-    rect(210, 760, 40, 100);
+    rect(150, 730, 40, 100);
+    rect(210, 730, 40, 100);
 
     // body
-    rect(130, 560, 135, 200);
+    rect(150, 560, 105, 200, 75);
 
     // head
     ellipse(200, 500, 150, 150);
@@ -76,5 +83,8 @@ function draw(){
     fill("black");
     ellipse(170, 490, 25, 15);
     ellipse(230, 490, 25, 15);
+
+    // mouth
+    ellipse(200, 540, 25, 25);
 
 }
