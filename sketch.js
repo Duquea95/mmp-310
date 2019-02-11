@@ -6,18 +6,13 @@ var story = "There once was a boy named Rusty. He was best friend with a pig nam
 var sceneCount = 0;
 
 // Settings: Dawn, Morning, Evening, Night
-// var currentSetting = "Dawn";
 var bgColor = "orange";
-var currentSetting = "Dawn";
+var chapter = "Dawn";
 
 // Sun Attributes
 var sunX = 100;
 var sunY = 285;
 var sunSize = 300;
-
-function preload() {
-    // pig = loadSound('assets/pig.mp3');
-}
 
 function setup(){
     createCanvas(1080, 1080);
@@ -26,85 +21,57 @@ function setup(){
 function draw(){
     background(bgColor);
 
-    if(currentSetting == "Dawn"){
+    if(chapter == "Dawn"){
+        bgColor = "orange";
         fill("yellow");
         noStroke();
-        ellipse(sunX, sunY, sunSize)
-
-        if(mouseIsPressed){
-            currentSetting = "Morning";
-            bgColor = "lightblue";
-        }
-    } else if(currentSetting == "Morning"){
-        fill('yellow');
-        noStroke();
-        ellipse(sunX + 150, sunY - 150, sunSize);
-
-        if(mouseIsPressed){
-            currentSetting = "Evening";
-            bgColor = "darkblue";
-
-            // sceneCount++;
-
-            // var orangeDistance = dist(mouseX, mouseY, orangeX, orangeY);
-            // if(orangeDistance < orangeSize / 2){
-            //     fruitEaten = "orange";
-            //     currentSetting = "night";
-            //     bgColor = "darkblue";
-            // }
-            // var bananaDistance = dist(mouseX, mouseY, bananaX, bananaY);
-            // if(bananaDistance < bananaSize / 2){
-            //     fruitEaten = "banana";
-            //     currentSetting = "night";
-            //     bgColor = "darkblue";
-            // }
-        }
-    }else if (currentSetting == "Evening") {
-        fill('yellow');
-        noStroke();
-        ellipse(sunX + 500, sunY - 150, sunSize);
+        ellipse(sunX, sunY, sunSize);
     }
-    // sun
-    // fill("yellow");
-    // ellipse(100, 285, 300, 300);
+    if(chapter == "Morning"){
+        bgColor = "lightblue";
+        fill("yellow");
+        noStroke();
+        ellipse(sunX + 300, sunY - 150, sunSize);
+    }
+    if(chapter == "Day"){
+        bgColor = "darkblue";
+        fill("yellow");
+        noStroke();
+        ellipse(sunX + 600, sunY - 150, sunSize);
+    }
+    if(chapter == "Night"){
+        bgColor = "purple";
+        fill("yellow");
+        noStroke();
+        ellipse(sunX + 880, sunY, sunSize);
+    }
+
 
     // grass
     fill("green");
     rect(0, 320, 1080,760);
 
     // Pig Character
-    fill("pink");
-
-    // body
-    rect(480, 660, 300, 150);
-
-    // head
-    rect(400, 600, 150, 150);
-
-    // legs
-    rect(500, 800, 75, 75);
-    rect(540, 800, 75, 75);
-    rect(660, 800, 75, 75);
-    rect(700, 800, 75, 75);
-
-    // eyes
-    fill("white");
-    ellipse(440, 650, 40, 70);
-    ellipse(510, 650, 40, 70);
-
-    // pupil
-    fill("black");
-    ellipse(440, 650, 20, 35);
-    ellipse(510, 650, 20, 35);
-
-    // nose
-    fill("pink");
-    strokeWeight(5);
-    ellipse(475, 700, 40, 30);
-
+    drawPig();
 
     // Person Character
+    drawHuman();
 
+}
+// function evening(){
+//     currentSetting = "Evening";
+//     bgColor = "darkblue";
+// }
+
+function mouseClicked(){
+    console.log("Click");
+    if(chapter == "Dawn") chapter = "Morning";
+    else if(chapter == "Morning") chapter = "Day";
+    else if(chapter == "Day") chapter = "Night";
+    else if(chapter == "Night") chapter = "Dawn";
+}
+
+function drawHuman(){
     // neck
     fill("beige");
     strokeWeight(1);
@@ -139,43 +106,35 @@ function draw(){
 
     // mouth
     ellipse(200, 540, 25, 25);
-
 }
 
+function drawPig(){
+    fill("pink");
 
-// if(mouseIsPressed) {
-//   switch (currentSetting) {
-//     case 'Dawn':
-//       changeToMorning();
-//       break;
-//     case 'Morning':
-//       changeToEvening();
-//       break;
-//     case 'Evening':
-//       changeToNight();
-//       break;
-//     default:
-//       changeToDawn();
-//   }
-// }
-//
-// function changeToDawn() {
-//     currentSetting = "Dawn";
-//     bgColor = "orange";
-//     fill("yellow");
-//     noStroke();
-//     ellipse(sunX, sunY, sunSize)
-// }
-//
-// function changeToMorning() {
-//     currentSetting = "Morning";
-//     bgColor = "lightblue";
-// }
-// function changeToEvening() {
-//     currentSetting = "Evening";
-//     bgColor = "darkblue";
-// }
-// function changeToNight() {
-//     currentSetting = "Night";
-//     bgColor = "purple";
-// }
+    // body
+    rect(480, 660, 300, 150);
+
+    // head
+    rect(400, 600, 150, 150);
+
+    // legs
+    rect(500, 800, 75, 75);
+    rect(540, 800, 75, 75);
+    rect(660, 800, 75, 75);
+    rect(700, 800, 75, 75);
+
+    // eyes
+    fill("white");
+    ellipse(440, 650, 40, 70);
+    ellipse(510, 650, 40, 70);
+
+    // pupil
+    fill("black");
+    ellipse(440, 650, 20, 35);
+    ellipse(510, 650, 20, 35);
+
+    // nose
+    fill("pink");
+    strokeWeight(5);
+    ellipse(475, 700, 40, 30);
+}
