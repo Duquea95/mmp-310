@@ -23,27 +23,6 @@ function setup(){
     createCanvas(1080, 1080);
 }
 
-// function changeSetting(){
-//     if (currentSetting == "Dawn"){
-//         bgColor = "lightblue";
-//         fill("yellow");
-//         noStroke();
-//         ellipse(sunX, sunY, sunSize)
-//     }
-//     if (currentSetting == "Morning"){
-//         currentSetting = "Evening";
-//         bgColor = "darkblue";
-//     }
-//     if (currentSetting == "Evening"){
-//         currentSetting = "Night";
-//         bgColor = "purple";
-//     }
-//     if (currentSetting == "Night"){
-//         currentSetting = "Dawn";
-//         bgColor = "orange";
-//     }
-// }
-
 function draw(){
     background(bgColor);
 
@@ -62,8 +41,11 @@ function draw(){
         ellipse(sunX + 150, sunY - 150, sunSize);
 
         if(mouseIsPressed){
-            // currentSetting = "Evening";
-            // bgColor = "darkblue";
+            fill('yellow');
+            noStroke();
+            ellipse(sunX + 500, sunY - 150, sunSize);
+            currentSetting = "Evening";
+            bgColor = "darkblue";
             // sceneCount++;
 
             // var orangeDistance = dist(mouseX, mouseY, orangeX, orangeY);
