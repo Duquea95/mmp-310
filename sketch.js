@@ -41,10 +41,9 @@ function draw(){
         ellipse(sunX + 150, sunY - 150, sunSize);
 
         if(mouseIsPressed){
-            fill('yellow');
-            noStroke();
-            ellipse(sunX + 500, sunY - 150, sunSize);
-        
+            currentSetting = "Evening";
+            bgColor = "darkblue";
+
             // sceneCount++;
 
             // var orangeDistance = dist(mouseX, mouseY, orangeX, orangeY);
@@ -60,10 +59,11 @@ function draw(){
             //     bgColor = "darkblue";
             // }
         }
+    }else if (currentSetting == "Evening") {
+        fill('yellow');
+        noStroke();
+        ellipse(sunX + 500, sunY - 150, sunSize);
     }
-    // else if (currentSetting ) {
-    //
-    // }
     // sun
     // fill("yellow");
     // ellipse(100, 285, 300, 300);
