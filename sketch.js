@@ -44,8 +44,7 @@ function draw(){
             fill('yellow');
             noStroke();
             ellipse(sunX + 500, sunY - 150, sunSize);
-            currentSetting = "Evening";
-            bgColor = "darkblue";
+        
             // sceneCount++;
 
             // var orangeDistance = dist(mouseX, mouseY, orangeX, orangeY);
