@@ -1,23 +1,97 @@
+// Characters
+// pig
+
+var story = "There once was a boy named Rusty. He was best friend with a pig named Bacon."
+
+var sceneCount = 0;
+
+// Settings: Dawn, Morning, Evening, Night
+// var currentSetting = "Dawn";
+var bgColor = "orange";
+var currentSetting = "Dawn";
+
+// Sun Attributes
+var sunX = 100;
+var sunY = 285;
+var sunSize = 300;
+
 function preload() {
     // pig = loadSound('assets/pig.mp3');
 }
 
 function setup(){
     createCanvas(1080, 1080);
-    background("blue");
 }
-function draw(){
 
+// function changeSetting(){
+//     if (currentSetting == "Dawn"){
+//         bgColor = "lightblue";
+//         fill("yellow");
+//         noStroke();
+//         ellipse(sunX, sunY, sunSize)
+//     }
+//     if (currentSetting == "Morning"){
+//         currentSetting = "Evening";
+//         bgColor = "darkblue";
+//     }
+//     if (currentSetting == "Evening"){
+//         currentSetting = "Night";
+//         bgColor = "purple";
+//     }
+//     if (currentSetting == "Night"){
+//         currentSetting = "Dawn";
+//         bgColor = "orange";
+//     }
+// }
+
+function draw(){
+    background(bgColor);
+
+    if(currentSetting == "Dawn"){
+        fill("yellow");
+        noStroke();
+        ellipse(sunX, sunY, sunSize)
+
+        if(mouseIsPressed){
+            currentSetting = "Morning";
+            bgColor = "lightblue";
+        }
+    } else if(currentSetting == "Morning"){
+        fill('yellow');
+        noStroke();
+        ellipse(sunX + 150, sunY - 150, sunSize);
+
+        if(mouseIsPressed){
+            // currentSetting = "Evening";
+            // bgColor = "darkblue";
+            // sceneCount++;
+
+            // var orangeDistance = dist(mouseX, mouseY, orangeX, orangeY);
+            // if(orangeDistance < orangeSize / 2){
+            //     fruitEaten = "orange";
+            //     currentSetting = "night";
+            //     bgColor = "darkblue";
+            // }
+            // var bananaDistance = dist(mouseX, mouseY, bananaX, bananaY);
+            // if(bananaDistance < bananaSize / 2){
+            //     fruitEaten = "banana";
+            //     currentSetting = "night";
+            //     bgColor = "darkblue";
+            // }
+        }
+    }
+    // else if (currentSetting ) {
+    //
+    // }
     // sun
-    fill("yellow");
-    ellipse(100, 285, 300, 300);
+    // fill("yellow");
+    // ellipse(100, 285, 300, 300);
 
     // grass
     fill("green");
     rect(0, 320, 1080,760);
 
     // Pig Character
-    // fill("white");
     fill("pink");
 
     // body
@@ -73,19 +147,54 @@ function draw(){
     ellipse(200, 500, 150, 150);
 
     // eyes
+    fill("white");
     ellipse(170, 490, 45, 20);
     ellipse(230, 490, 45, 20);
 
     // pupils
     fill("black");
-    ellipse(170, 490, 25, 15);
-    ellipse(230, 490, 25, 15);
+    ellipse(170, 490, 20, 15);
+    ellipse(230, 490, 20, 15);
 
     // mouth
     ellipse(200, 540, 25, 25);
 
 }
 
-// function mousePressed(){
+
+// if(mouseIsPressed) {
+//   switch (currentSetting) {
+//     case 'Dawn':
+//       changeToMorning();
+//       break;
+//     case 'Morning':
+//       changeToEvening();
+//       break;
+//     case 'Evening':
+//       changeToNight();
+//       break;
+//     default:
+//       changeToDawn();
+//   }
+// }
 //
+// function changeToDawn() {
+//     currentSetting = "Dawn";
+//     bgColor = "orange";
+//     fill("yellow");
+//     noStroke();
+//     ellipse(sunX, sunY, sunSize)
+// }
+//
+// function changeToMorning() {
+//     currentSetting = "Morning";
+//     bgColor = "lightblue";
+// }
+// function changeToEvening() {
+//     currentSetting = "Evening";
+//     bgColor = "darkblue";
+// }
+// function changeToNight() {
+//     currentSetting = "Night";
+//     bgColor = "purple";
 // }
