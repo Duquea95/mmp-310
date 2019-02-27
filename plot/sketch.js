@@ -1,4 +1,4 @@
-// Settings: Dawn, Morning, Evening, Night
+// Global Variables
 var bgColor = "Orange";
 var chapter = "Dawn";
 var whichChar = " ";
@@ -14,12 +14,12 @@ function setup(){
 
 function draw(){
     background(bgColor);
-
     if(chapter == "Dawn"){
         bgColor = "orange";
         fill("yellow");
+        // Sun
         drawSun();
-        // grass
+        // Grass
         drawGrass();
         // Pig Character
         drawPig();
@@ -30,8 +30,9 @@ function draw(){
     else if(chapter == "Morning"){
         bgColor = "lightblue";
         fill("yellow");
+        // Sun
         drawSun();
-        // grass
+        // Grass
         drawGrass();
         // Pig Character
         drawPig();
@@ -40,30 +41,19 @@ function draw(){
         narrative("What good fortune! I have found food for the next 3 days!", "Click anywhere to continue");
     }
     else if(chapter == "Day"){
-        bgColor = "darkblue";
-        fill("yellow");
-        drawSun();
-        // grass
-        drawGrass();
-        // Pig Character
-        drawPig();
-        // Person Character
-        drawHuman();
         if(whichChar == "pig"){
+            bgColor = "darkblue";
+            fill("yellow");
+            // Sun
+            drawSun();
+            // Grass
+            drawGrass();
+            // Pig Character
+            drawPig();
+            // Person Character
+            drawHuman();
             narrative("WAIT NO!!", "Click anywhere to continue");
         }
-        // bgColor = "darkblue";
-        // fill("yellow");
-        // drawSun();
-        // // grass
-        // drawGrass();
-        // // Pig Character
-        // drawPig();
-        // // Person Character
-        // drawHuman();
-        // narrative("WAIT!! I am no snack. I'm Tim the pig!.", "Click anywhere to continue");
-        // ellipse(sunX + 600, sunY - 150, sunSize);
-        // noStroke();
 
         if(whichChar == "man"){
             bgColor = "purple";
@@ -97,8 +87,6 @@ function draw(){
             drawSun();
             // grass
             drawGrass();
-            // Pig Character
-            drawPig();
             // Person Character
             drawHuman();
             narrative("That was delicious. Time for sleep!.", "Click anywhere to continue");
@@ -108,20 +96,15 @@ function draw(){
 
 function mouseClicked(){
     if(chapter == "Dawn") chapter = "Morning";
-    // else if(chapter == "Morning") chapter = "Day";
     else if (chapter == "Morning"){
         // If Human clicked
-        // var humanDist = dist(mouseX, mouseY, 0, 1200);
         if (mouseX < 400 ) {
             whichChar = "man";
             chapter = "Day";
             console.log('man clicked');
-            // console.log(humanDist);
         }
         // If pig clicked
-        // var pigDist = dist(mouseX, mouseY, 0, 1200);
         if (mouseX > 600) {
-            // console.log(pigDist);
             whichChar = "pig";
             chapter = "Day";
             console.log('pig clicked');
@@ -138,7 +121,7 @@ function drawGrass() {
 
 function drawSun(){
     noStroke();
-
+    // Sun Position in each chapter
     if(chapter == "Dawn"){
         ellipse(sunX, sunY, sunSize);
         // noStroke();

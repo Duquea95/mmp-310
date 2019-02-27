@@ -16,9 +16,9 @@ function draw(){
 
         faceSize = random(50, 500);
 
-        let r = random(255);
-        let g = random(200, 255);
-        let b = random(255);
+        let r = random(0, 255);
+        let g = random(0, 255);
+        let b = random(0, 255);
         fill(r, g, b);
         ellipse(x, y, faceSize); // face
 
