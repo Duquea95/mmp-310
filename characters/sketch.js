@@ -1,7 +1,6 @@
 // Settings: Dawn, Morning, Evening, Night
 var bgColor = "Orange";
 var chapter = "Dawn";
-var whichChar = " ";
 
 // Sun Attributes
 var sunX = 100;
@@ -14,126 +13,21 @@ function setup(){
 
 function draw(){
     background(bgColor);
+    drawHuman();
+    drawPig();
 
-    if(chapter == "Dawn"){
-        bgColor = "orange";
-        fill("yellow");
-        drawSun();
-        // grass
-        drawGrass();
-        // Pig Character
-        drawPig();
-        // Person Character
-        drawHuman();
-        narrative("There once was a boy named Rusty. One morning while hunting for food, he encountered a pig.", "Click anywhere to continue");
-    }
-    else if(chapter == "Morning"){
-        bgColor = "lightblue";
-        fill("yellow");
-        drawSun();
-        // grass
-        drawGrass();
-        // Pig Character
-        drawPig();
-        // Person Character
-        drawHuman();
-        narrative("What good fortune! I have found food for the next 3 days!", "Click anywhere to continue");
-    }
-    else if(chapter == "Day"){
-        bgColor = "darkblue";
-        fill("yellow");
-        drawSun();
-        // grass
-        drawGrass();
-        // Pig Character
-        drawPig();
-        // Person Character
-        drawHuman();
-        if(whichChar == "pig"){
-            narrative("WAIT NO!!", "Click anywhere to continue");
-        }
-        // bgColor = "darkblue";
-        // fill("yellow");
-        // drawSun();
-        // // grass
-        // drawGrass();
-        // // Pig Character
-        // drawPig();
-        // // Person Character
-        // drawHuman();
-        // narrative("WAIT!! I am no snack. I'm Tim the pig!.", "Click anywhere to continue");
-        // ellipse(sunX + 600, sunY - 150, sunSize);
-        // noStroke();
+}
 
-        if(whichChar == "man"){
-            bgColor = "purple";
-            fill("yellow");
-            drawSun();
-            // grass
-            drawGrass();
-            // Pig Character
-            // drawPig()
-            // Person Character
-            drawHuman();
-            narrative("What a great meal!", "Click anywhere to continue");
-        }
-    }
-    else if(chapter == "Night"){
-        if(whichChar == "pig"){
-            bgColor = "purple";
-            fill("yellow");
-            drawSun();
-            // grass
-            drawGrass();
-            // Pig Character
-            drawPig();
-            // Person Character
-            drawHuman();
-            narrative("Thank you for sparing my life friend!.", "Click anywhere to continue");
-        }
-        if(whichChar == "man"){
-            bgColor = "purple";
-            fill("yellow");
-            drawSun();
-            // grass
-            drawGrass();
-            // Pig Character
-            drawPig();
-            // Person Character
-            drawHuman();
-            narrative("That was delicious. Time for sleep!.", "Click anywhere to continue");
-        }
-    }
+function drawGrass(){
+    fill("green");
+    rect(0, 320, 1080,760);
 }
 
 function mouseClicked(){
     if(chapter == "Dawn") chapter = "Morning";
-    // else if(chapter == "Morning") chapter = "Day";
-    else if (chapter == "Morning"){
-        // If Human clicked
-        // var humanDist = dist(mouseX, mouseY, 0, 1200);
-        if (mouseX < 400 ) {
-            whichChar = "man";
-            chapter = "Day";
-            console.log('man clicked');
-            // console.log(humanDist);
-        }
-        // If pig clicked
-        // var pigDist = dist(mouseX, mouseY, 0, 1200);
-        if (mouseX > 600) {
-            // console.log(pigDist);
-            whichChar = "pig";
-            chapter = "Day";
-            console.log('pig clicked');
-        }
-    }
+    else if(chapter == "Morning") chapter = "Day";
     else if(chapter == "Day") chapter = "Night";
     else if(chapter == "Night") chapter = "Dawn";
-}
-
-function drawGrass() {
-    fill("green");
-    rect(0, 400, 1080,760);
 }
 
 function drawSun(){
@@ -281,18 +175,8 @@ function drawPig(){
 
     // nose
     fill("pink");
-    // strokeWeight(5);
+    strokeWeight(5);
     ellipse(475, 700, 40, 30);
 
 
-}
-
-function narrative(story, instructions){
-	// narrative
-	stroke(255);
-	textSize(25);
-	text(story, 300, 50, 800, 800);
-	// instructions
-	textSize(20);
-	text(instructions, width - 250, height - 50);
 }
