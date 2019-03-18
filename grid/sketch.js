@@ -19,8 +19,7 @@ function setup() {
 		}
 	}
 
-	for (let x = 0; x <= width; x += 60) {
-		for (let y = 0; y <= height; y += 60) {
-		}
+	function mouseClicked() {
+			save('grid.jpg');
 	}
 }

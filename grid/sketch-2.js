@@ -19,4 +19,9 @@ function setup() {
 			rect(randX, randY, randW, randH);
 		}
 	}
+
+	function mouseClicked() {
+			save('grid.jpg');
+	}
+
 }
