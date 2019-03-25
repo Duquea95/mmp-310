@@ -1,5 +1,5 @@
 function setup() {
-	createCanvas(840, 840);
+	createCanvas(windowWidth, windowHeight);
 	background(220);
 	strokeWeight(2);
 
@@ -18,7 +18,6 @@ function setup() {
 			ellipse(randX, randY, randW);
 		}
 	}
-
 }
 
 function mouseClicked() {
