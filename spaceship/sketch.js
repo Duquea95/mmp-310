@@ -7,7 +7,7 @@ var spaceship = {
 	speed: 5,
 	display: function () {
 		fill(200,100, 100);
-		triangle(
+		image(
 			this.x, this.y,
 			this.x - this.size, this.y + this.size * 2,
 			this.x + this.size, this.y + this.size * 2
