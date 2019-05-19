@@ -3,7 +3,7 @@ var asteroids = [];
 var spaceship = {
 	x: 0,
 	y: 200,
-	size: 50,
+	size: 100,
 	speed: 5,
 	display: function () {
 		fill(200,100, 100);
