@@ -10,7 +10,11 @@ class Asteroid extends Entity {
 	display() {
 		fill(this.color);
 		noStroke();
-		image(asteroidImg, this.x, this.y, this.size, this.size);
+		if(this.size > 75 && this.size < 80){
+			image(alien, this.x, this.y, this.size, this.size);
+		}else {
+			image(asteroidImg, this.x, this.y, this.size, this.size);
+		}
 	}
 
 	update() {

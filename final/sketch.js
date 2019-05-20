@@ -5,15 +5,19 @@ var powerups = [];
 var stars = [];
 var starSpeed;
 var galaxy;
+var bg2;
+var bg3;
 var star;
 var laser;
 var ship;
 var bgm;
+var bgm2;
 var asteroidImg;
 var laserSound;
 var hit;
 var explode;
 var engine;
+var alien;
 
 // probability asteroid spawned in each frame
 var asteroidProb = 99;
@@ -31,6 +35,7 @@ var score = 0;
 var lives = 3;
 var lifeImg;
 var playSong = false;
+var song2 = false;
 
 function preload() {
 	// Load Images
@@ -40,10 +45,14 @@ function preload() {
 	ship = loadImage("spaceship.png");
 	asteroidImg = loadImage("asteroid.png");
 	star = loadImage("star.png");
+	alien = loadImage("alien.png");
 	galaxy = loadImage("galaxy.jpg");
+	bg2 = loadImage("bg2.jpg");
+	bg3 = loadImage("bg3.jpeg");
 
 	// Load Sounds
 	bgm = loadSound("PHARO.wav")
+	bgm2 = loadSound("missin.mp3")
 	laserSound = loadSound("laserSound.wav")
 	hit = loadSound("hit.wav");
 	explode = loadSound("explode.mp3");
@@ -51,7 +60,7 @@ function preload() {
 	laserSound.amp(.1);
 	hit.amp(.1);
 	explode.amp(.1);
-	engine.amp(.1);
+	// engine.amp(.1);
 }
 
 function setup() {
@@ -69,13 +78,34 @@ function setup() {
 
 
 function draw() {
-	background(galaxy);
 	bgm.amp(.3);
 	if(playSong == false){
 		bgm.loop();
 		bgm.play();
 		playSong = true;
 	}
+	// if(song2 == true){
+	// 	bgm.loop();
+	// 	bgm.play();
+	// }
+	if(score < 20){
+		background(galaxy);
+	}
+	else if(score >= 20 && score < 40){
+		background(bg2)
+		fill('white');
+		text('Level 2', width/2, height/2);
+	}
+	else if(score >= 40 && score < 60){
+		background(bg3)
+		fill('white');
+		text('Level 3', width/2, height/2);
+	}
+	else if(score >= 60 && score < 80){
+		fill('white');
+		text('Level 4', width/2, height/2);
+	}
+
 	// add random power ups
 	if (random(1000) > 998) {
 		powerups.push(new Powerup());
@@ -155,7 +185,11 @@ function draw() {
 				lasers[j].died = true;
 
 				// increment score
-				score += 1;
+				if(asteroids[i].died == true && asteroids[i].size > 75 && asteroids[i].size < 80){
+					score += 3;
+				}else{
+					score += 1;
+				}
 
 				// after player hits asteroid, increase probability
 				asteroidProb -= 0.5;
