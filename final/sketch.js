@@ -228,7 +228,7 @@ function draw() {
 	/* user display */
 
 	// score
-	fill('orange');
+	fill('white');
 	textSize(40);
 	text('Score: ' + score, width - 100, 20);
 
